@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    /* ===== Light Theme ===== */
+    :root {
+      --header-bg: #4CAF50;
+      --header-text: #fff;
+      --sidebar-bg: #f4f4f4;
+      --sidebar-text: #000;
+      --main-bg: #fff;
+      --main-text: #000;
+      --footer-bg: #4CAF50;
+      --footer-text: #fff;
+    }
+
+    /* ===== Dark Theme ===== */
+    body.dark {
+      --header-bg: #222;
+      --header-text: #fff;
+      --sidebar-bg: #333;
+      --sidebar-text: #ddd;
+      --main-bg: #111;
+      --main-text: #fff;
+      --footer-bg: #111;
+      --footer-text: #ddd;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-rows: 60px 1fr 40px;
+      grid-template-columns: 200px 1fr;
+      height: 100vh;
+      background: var(--main-bg);
+      color: var(--main-text);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* ===== Header ===== */
+    header {
+      grid-area: header;
+      background: var(--header-bg);
+      color: var(--header-text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 15px;
+      font-weight: bold;
+    }
+
+    header label {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    /* ===== Sidebar ===== */
+    aside {
+      grid-area: sidebar;
+      background: var(--sidebar-bg);
+      padding: 20px;
+      border-right: 1px solid #ccc;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    aside a {
+      display: block;
+      margin: 10px 0;
+      color: var(--sidebar-text);
+      text-decoration: none;
+    }
+
+    aside a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Main Content ===== */
+    main {
+      grid-area: main;
+      padding: 20px;
+      background: var(--main-bg);
+      color: var(--main-text);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      grid-area: footer;
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      text-align: center;
+      font-size: 14px;
+      line-height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div>Admin Dashboard</div>
+    <label>
+      <input type="checkbox" id="themeToggle"> Dark Mode
+    </label>
+  </header>
+
+  <!-- Sidebar -->
+  <aside>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Users</a>
+      <a href="#">Settings</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Welcome, Admin!</h2>
+    <p>This is the main content area. Add charts, tables, or reports here.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Admin Panel
+  </footer>
+
+  <!-- JavaScript Theme Switch -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    toggle.addEventListener('change', () => {
+      body.classList.toggle('dark', toggle.checked);
+    });
+  </script>
+</body>
+</html>
